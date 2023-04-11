@@ -1,0 +1,251 @@
+/* ------------------------------- //ANCHOR - ESTILO GERAL * ------------------------------- */
+
+:hover {
+  transition: all 0.3s ease;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ------------------------------- //ANCHOR - ESTILO BODY ------------------------------- */
+
+.fundo {
+  overflow-y: hidden;
+  padding-right: 18px;
+  height: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.fundo.escuro {
+  background-color: #111827;
+  color: white;
+}
+
+.fundo.claro {
+  background-color: #f3f6fd;
+  color: black;
+}
+
+/* --------------------------- //ANCHOR - ESTILO BUTTONS FORM --------------------------- */
+
+.botao {
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: 0px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.botao.caixa {
+  box-shadow: #0000001e 0px 2px 1px;
+}
+
+.botao.escuro {
+  background-color: #1f2937;
+  color: #fff !important;
+}
+
+.botao.claro {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.botao:hover {
+  border: 0px;
+  letter-spacing: 1.5px;
+  transform: translateY(-3px);
+  background-color: #1875ff;
+  color: #ffffff;
+  box-shadow: #0237e6 0px 5px 0px 0px;
+}
+
+.botao:active {
+  transform: translateY(1px);
+  background-color: #1c91ff;
+  box-shadow: #00000000 0px 5px 0px 0px;
+}
+
+/* DANGER BUTTONS */
+
+.botao.danger:hover {
+  background-color: #ff3636;
+  color: #ffffff;
+  box-shadow: #b81b1b 0px 5px 0px 0px;
+}
+
+.botao.danger:active {
+  background-color: #ff322b;
+  box-shadow: #00000000 0px 5px 0px 0px;
+}
+
+/* SUCCESS BUTTONS */
+
+.botao.success:hover {
+  background-color: #3c9958;
+  color: #ffffff;
+  box-shadow: #19722f 0px 5px 0px 0px;
+}
+
+.botao.success:active {
+  background-color: #37bd5f;
+  box-shadow: #00000000 0px 5px 0px 0px;
+}
+
+/* --------------------------- //ANCHOR - ESTILO SLIDER THEME --------------------------- */
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+  border-radius: 30px;
+  box-shadow: #0000001e 0px 2px 1px;
+}
+
+.slider.escuro {
+  background-color: #1f2937;
+}
+
+.slider.escuro:before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon, 1.4em);
+  width: var(--size-of-icon, 1.4em);
+  left: var(--slider-offset, 0.3em);
+  border-radius: 20px;
+  left: 50%;
+  transform: translateY(20%);
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+  transition: 0.4s;
+}
+
+.slider.claro {
+  background-color: #fff;
+}
+
+.slider.claro:before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon, 1.4em);
+  width: var(--size-of-icon, 1.4em);
+  left: var(--slider-offset, 0.3em);
+  border-radius: 20px;
+
+  transform: translateY(20%);
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+  transition: 0.4s;
+}
+
+/* ---------------------------- //ANCHOR - ESTILO FORMULARIO ---------------------------- */
+.formulario {
+  border-radius: 10px;
+  padding: 25px;
+  margin: 20px 0px;
+  text-align: center;
+  box-shadow: #0000001e 0px 2px 1px;
+}
+
+.formulario.escuro {
+  background-color: #1f2937;
+  color: #fff;
+}
+
+.formulario.claro {
+  background-color: #fff;
+  color: #000;
+}
+
+.selecionar {
+  padding: 7px 25px;
+  margin: 0px -30px 40px 0px;
+  border-radius: 10px;
+}
+
+.selecionar.escuro {
+  background-color: #1f2937;
+  color: #fff;
+  border: 1px solid#b3b3b311;
+}
+
+.selecionar.claro {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid#e4e4e49f;
+}
+
+.selecionar:hover {
+  border: 1px solid#1875ff;
+}
+
+/* ------------------------------ //ANCHOR - ESTILO NAVBAR ----------------------------- */
+
+.itens {
+  text-align: start;
+  margin: 6px 0px 6px 12px;
+}
+
+.itens.escuro {
+  color: #fff;
+}
+
+.itens.claro {
+  color: #000;
+}
+
+/* NAV LINK*/
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  margin: 0px -2px 0px 0px;
+  background-color: rgba(255, 0, 0, 0);
+  border-right: 2px solid #1875ff;
+  border-radius: 0px;
+}
+
+.nav-pills .nav-link:hover,
+.nav-pills .show > .nav-link {
+  margin: 0px -2px 0px 0px;
+  background-color: rgba(255, 0, 0, 0);
+  border-right: 2px solid #1874ff4f;
+  border-radius: 0px;
+}
+
+/* NAV BORDA*/
+
+.borda {
+  position: fixed;
+  margin: 0px 0px 0px 0px;
+  height: 100vh;
+  width: 80px;
+}
+
+.borda.escuro {
+  border-right: 2px solid #1f2937;
+}
+
+.borda.claro {
+  border-right: 2px solid #7070702a;
+}
+
+/* ------------------------------ //ANCHOR - ESTILO USER LIST ----------------------------- */
+
+.client {
+  text-align: start;
+  padding: 0px 20px;
+}
+
+.client:hover {
+  outline: solid 1px #1875ff;
+  outline-offset: -1px;
+}
+
+p.info {
+  margin-top: 12px;
+}
