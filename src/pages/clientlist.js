@@ -1,26 +1,26 @@
 import ClienteLista from "../components/index/ClienteLista";
 import TabNav from "../components/index/Tabnav";
 import { Tab, Row, Col } from "react-bootstrap";
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import ThemeContext from "../contexts/ThemeContext";
 
-export async function getStaticProps(context){
+export async function getStaticProps(context) {
+
   const res = await fetch("http://192.168.1.104:5000");
   const clientes = await res.json();
-  
+
+    
   return {
     props: {
       clientes,
     },
-   revalidate:30,
+    revalidate: 30,
   };
-
-
 }
 
-function clientlist({clientes}) {
+function clientlist({ clientes }) {
   const { theme } = useContext(ThemeContext);
-  const data = clientes
+  const data = clientes;
 
   return (
     <Tab.Container>
@@ -29,10 +29,10 @@ function clientlist({clientes}) {
           <TabNav at={true} />
         </Col>
         <Col>
-        {data && data.map((client,index)=>{
-          return <ClienteLista name={client.nome} key={index}/>
-        })}
-          
+          {data &&
+            data.map((client, index) => {
+              return <ClienteLista name={client.nome} key={index} />;
+            })}
         </Col>
       </Row>
     </Tab.Container>

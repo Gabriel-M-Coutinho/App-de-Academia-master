@@ -1,3 +1,6 @@
+/* ---------------------------------- FONT ---------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 /* ------------------------------- //ANCHOR - ESTILO GERAL * ------------------------------- */
 
 :hover {
@@ -6,6 +9,19 @@
 
 body {
   overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+h4 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.alinharcentro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 /* ------------------------------- //ANCHOR - ESTILO BODY ------------------------------- */
@@ -67,6 +83,11 @@ body {
   transform: translateY(1px);
   background-color: #1c91ff;
   box-shadow: #00000000 0px 5px 0px 0px;
+}
+
+.botao-voltar {
+  width: 10vw; /* ou outro tamanho desejado */
+  margin: 0 auto;
 }
 
 /* DANGER BUTTONS */
@@ -171,7 +192,7 @@ body {
 .selecionar.escuro {
   background-color: #1f2937;
   color: #fff;
-  border: 1px solid#b3b3b311;
+  border: 1px solid#b3b3b32c;
 }
 
 .selecionar.claro {
@@ -203,6 +224,7 @@ body {
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
+  transition: none;
   margin: 0px -2px 0px 0px;
   background-color: rgba(255, 0, 0, 0);
   border-right: 2px solid #1875ff;
@@ -211,9 +233,10 @@ body {
 
 .nav-pills .nav-link:hover,
 .nav-pills .show > .nav-link {
+  transition: none;
   margin: 0px -2px 0px 0px;
   background-color: rgba(255, 0, 0, 0);
-  border-right: 2px solid #1874ff4f;
+  border-right: 2px solid #ffffff;
   border-radius: 0px;
 }
 
@@ -248,4 +271,15 @@ body {
 
 p.info {
   margin-top: 12px;
+}
+
+/* ---------------------------- //ANCHOR - ESTILO FICHA CLIENT --------------------------- */
+
+.clientpage {
+  text-align: start;
+  padding: 20px;
+}
+
+.clipageinfo {
+  margin: 10px;
 }

@@ -22,8 +22,10 @@ function AddForm() {
   const { theme } = useContext(ThemeContext);
   const [exercises, setExercises] = useState([]);
   const [forms, setForms] = useState({
-    0: { campos: { 0: { nome: "", valor: "" } } },
+ 
+    0: { campos: { 0: {  Nome: "",Series:"",Repeticoes:"" } } },
   });
+  const [selectedOption, setSelectedOption] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,7 +48,7 @@ function AddForm() {
     const newKey = Object.keys(forms).length;
     setForms({
       ...forms,
-      [newKey]: { campos: { 0: { nome: "", valor: "" } } },
+      [newKey]: { campos: { } },
     });
   }, [forms]);
 
@@ -79,21 +81,41 @@ function AddForm() {
   );
 
   const handleChange = useCallback(
-    (indiceForm, indiceCampo, event) => {
+    (indiceForm, indiceCampo, event) => { 
       const form = { ...forms[indiceForm] };
-      form.campos[indiceCampo].valor = event.target.value;
+      form.campos[indiceCampo].Nome= event.target.value;
+      
       setForms({ ...forms, [indiceForm]: form });
+      console.log(forms)
     },
     [forms]
   );
 
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
+
+  const hendleSubimit = ()=>{
+
+  }
+
+  const handleChangeSeries = (indiceForm,indiceCampo,event) => {
+    const form = { ...forms[indiceForm] };
+    form.campos[indiceCampo].Series = event.target.value;
+
+    
+    
+
+  };
+  const handleChangeRepeticoes = (indiceForm,indiceCampo,event) => {
+    const form = { ...forms[indiceForm] };
+    form.campos[indiceCampo].Repeticoes = event.target.value;
+
+    
+    
+
   };
 
-  const [selectedOption, setSelectedOption] = useState("");
 
-  // Cria um array com valores de 1 a 20
+
+  // Cria um array com valores de 1 a 20 - SELEÇÃO DE REPETIÇÃO, SÉRIE
   const repetir = useMemo(
     () => Array.from({ length: 10 }, (_, index) => index + 1),
     []
@@ -109,7 +131,9 @@ function AddForm() {
       {Object.keys(forms).map((formKey, indiceForm) => (
         <Form key={formKey} className={`formulario ${theme}`}>
           <Row>
+
             <Col>
+             {/*-------------- TEXTO: DESCRIÇÃO DA PAG ---------------*/}
               <h4
                 htmlFor={`form${indiceForm}-group`}
                 style={{ textAlign: "start", marginBottom: "20px" }}
@@ -119,9 +143,13 @@ function AddForm() {
             </Col>
 
             <Col style={{ display: "flex", justifyContent: "end" }}>
+
               <div>
+                 {/*-------------- BOTÃO: SALVAR FORM COMO MODELO ---------------*/}
                 <SaveformName />
               </div>
+
+               {/*--------------  BOTÃO: USAR UM MODELO DE FORM ---------------*/}
               <div>
                 <Tooltip
                   contentColor="primary"
@@ -140,6 +168,8 @@ function AddForm() {
               </div>
             </Col>
           </Row>
+
+          {/*--------------  FORM: SELECIONAR O EXERCICIO ---------------*/}
           {Object.keys(forms[formKey].campos).map((keyCampo, indiceCampo) => {
             const campo = forms[formKey].campos[keyCampo];
             return (
@@ -162,6 +192,7 @@ function AddForm() {
                         className={`selecionar ${theme}`}
                         label={exercicio.nome}
                         key={exercicio.nome}
+                       
                       >
                         {exercicio.exercicios.map((ex) => (
                           <option value={ex.nome} key={ex.nome}>
@@ -173,11 +204,13 @@ function AddForm() {
                   </Form.Select>
                 </Col>
 
+
+               {/*--------------  FORM: SELECIONAR SÉRIE ---------------*/}
                 <Col style={{ textAlign: "start" }} xs={3}>
                   <label> Series </label>
                   <Form.Select
                     defaultValue=""
-                    onChange={handleOptionChange}
+                    onChange={(event)=>{handleChangeSeries(indiceForm, keyCampo,event)}}
                     className={`selecionar ${theme}`}
                   >
                     <option value="" disabled hidden>
@@ -195,12 +228,13 @@ function AddForm() {
                   </Form.Select>
                 </Col>
 
+               {/*--------------  FORM: SELECIONAR REPETIÇÃO ---------------*/}
                 <Col style={{ textAlign: "start" }}>
                   <label> Repetições </label>
                   <Form.Select
                     className={`selecionar ${theme}`}
                     defaultValue=""
-                    onChange={handleOptionChange}
+                    onChange={(event)=>{handleChangeRepeticoes(indiceForm, keyCampo,event)}}
                   >
                     <option value="" disabled hidden>
                       ...
@@ -225,6 +259,8 @@ function AddForm() {
                   }}
                 >
                   <div>
+                    
+               {/*--------------  BOTÃO: EXCLUIR EXERCICIO ---------------*/}
                     <Tooltip
                       contentColor="error"
                       color="default"
@@ -244,7 +280,10 @@ function AddForm() {
               </Row>
             );
           })}
+
           <hr style={{ opacity: "20%" }} />
+          
+           {/*--------------  BOTÃO: ADICIONAR NOVO EXERCICIO ---------------*/}
           <button
             type="button"
             className={`botao ${theme}`}
@@ -254,6 +293,7 @@ function AddForm() {
           </button>
         </Form>
       ))}
+
       <Row
         className={`formulario ${theme}`}
         style={{
@@ -263,6 +303,8 @@ function AddForm() {
         }}
       >
         <Col style={{ margin: "0px -3px" }}>
+          
+           {/*--------------  BOTÃO: ADICIONAR NOVO FORMULARIO ---------------*/}
           <button
             type="button"
             className={`botao caixa ${theme}`}
@@ -274,6 +316,8 @@ function AddForm() {
         </Col>
 
         <Col style={{ margin: "0px -3px" }}>
+          
+           {/*--------------  BOTÃO: EXCLUIR O NOVO FORMULARIO ---------------*/}
           <button
             type="button"
             className={`botao caixa danger ${theme}`}
@@ -285,6 +329,8 @@ function AddForm() {
         </Col>
 
         <Col style={{ margin: "0px -3px" }}>
+          
+           {/*--------------  BOTÃO: SALVAR O FORMULARIO COMPLETO ---------------*/}
           <button
             type="button"
             className={`botao caixa success ${theme}`}
