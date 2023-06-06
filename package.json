@@ -17,6 +17,7 @@
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
     "next": "13.2.4",
+    "nookies": "^2.5.2",
     "react-bootstrap": "^2.7.2",
     "react-fontawesome": "^1.7.1",
     "react-query": "^3.39.3"

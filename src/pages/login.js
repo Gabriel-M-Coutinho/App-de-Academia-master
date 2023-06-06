@@ -2,9 +2,12 @@ import ThemeButton from "../components/index/ThemeButton";
 import { Container, Row, Form } from "react-bootstrap";
 import React, { useContext, useState } from "react";
 import ThemeContext from "../contexts/ThemeContext";
-import axios from "axios";
+import { setCookie } from "nookies";
+import { useRouter } from 'next/router';
+
 
 function Login() {
+  const router = useRouter();
   const { theme } = useContext(ThemeContext);
   const [formstate, setformstate] = useState({});
   const [errormsg, seterrormsg] = useState(false);
@@ -18,22 +21,33 @@ function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Impede o envio do formulário
-  console.log('handle submit')
-    try {
-      const res = await axios.post('http://localhost:4000/login', formstate);
-      console.log(res)
-      const resp = await res.data;
-      console.log(resp);
-  
-      if (resp.message === 'Credenciais inválidas') {
-        console.log('entrou no if');
-      } else {
-        console.log('salvando dados de cookie');
-      }
-    } catch (err) {
-      console.log(err.response);
+
+    try{
+      const res = await fetch('http://localhost:4000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formstate),
+      });
+      const json = await res.json()
+      console.log(json.status)
+      setCookie(null,'Token',json.token,{  sameSite: 'none',
+      secure: true
+    })
+      router.push('/')
+
+    }catch(err){
+      console.log('erro no server')
     }
-  };
+      
+
+
+      
+
+  
+  
+  }
 
   return (
     <Container
