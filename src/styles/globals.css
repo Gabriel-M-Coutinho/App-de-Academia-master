@@ -44,6 +44,26 @@ h4 {
   color: black;
 }
 
+.fundo.login.escuro {
+  background: rgb(31, 41, 55);
+  background: linear-gradient(
+    0deg,
+    rgba(31, 41, 55, 1) 0%,
+    rgba(17, 24, 39, 1) 100%
+  );
+  color: white;
+}
+
+.fundo.login.claro {
+  background: rgb(225, 234, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(225, 234, 255, 1) 0%,
+    rgba(243, 246, 253, 1) 100%
+  );
+  color: black;
+}
+
 /* --------------------------- //ANCHOR - ESTILO BUTTONS FORM --------------------------- */
 
 .botao {
@@ -282,4 +302,16 @@ p.info {
 
 .clipageinfo {
   margin: 10px;
+}
+
+/* ----------------------------- ESQUECI A SENHA ---------------------------- */
+
+.linkrecuperar {
+  opacity: 60%;
+  font-size: small;
+  margin: 20px 0px -10px;
+}
+
+.linkrecuperar:hover {
+  text-decoration: underline;
 }

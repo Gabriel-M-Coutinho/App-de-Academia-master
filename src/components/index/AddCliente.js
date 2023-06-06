@@ -23,10 +23,10 @@ function AddCliente() {
               <Form.Control
                 className={`selecionar ${theme}`}
                 type="name"
-                placeholder="..."
+                placeholder=".."
               />
             </Form.Group>
-          </Col> 
+          </Col>
           {/*-------------- FORM: SOBRENOME ---------------*/}
           <Col style={{ textAlign: "start" }} sm={6}>
             <label> Sobrenome </label>

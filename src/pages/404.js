@@ -24,12 +24,14 @@ function Erro() {
             </Row>
 
             <Row>
-             <Link href="/"> <button
-                type="button"
-                className={`botao caixa ${theme} botao-voltar`}
-              >
-                Voltar
-              </button></Link >
+              <Link href="/">
+                <button
+                  type="button"
+                  className={`botao caixa ${theme} botao-voltar`}
+                >
+                  Voltar
+                </button>
+              </Link>
             </Row>
           </Container>
         </Col>

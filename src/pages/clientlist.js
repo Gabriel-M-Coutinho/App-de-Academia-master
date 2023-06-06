@@ -5,11 +5,9 @@ import React, { useContext } from "react";
 import ThemeContext from "../contexts/ThemeContext";
 
 export async function getStaticProps(context) {
-
-  const res = await fetch("http://192.168.1.104:5000");
+  const res = await fetch("http://localhost:4000/ficha");
   const clientes = await res.json();
 
-    
   return {
     props: {
       clientes,
@@ -18,9 +16,10 @@ export async function getStaticProps(context) {
   };
 }
 
-function clientlist({ clientes }) {
+function Clientlist({ clientes }) {
   const { theme } = useContext(ThemeContext);
   const data = clientes;
+
 
   return (
     <Tab.Container>
@@ -31,7 +30,7 @@ function clientlist({ clientes }) {
         <Col>
           {data &&
             data.map((client, index) => {
-              return <ClienteLista name={client.nome} key={index} />;
+              return <ClienteLista name={client.name} key={index} />;
             })}
         </Col>
       </Row>
@@ -39,4 +38,4 @@ function clientlist({ clientes }) {
   );
 }
 
-export default clientlist;
+export default Clientlist;

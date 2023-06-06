@@ -6,11 +6,11 @@ import React, { useContext } from "react";
 import ThemeContext from "../../../contexts/ThemeContext";
 
 export const getStaticPaths = async ()=>{
-  const res = await fetch("http://192.168.1.104:5000")
+  const res = await fetch("http://localhost:4000/ficha")
   const clients = await res.json()
 
   const paths = clients.map((client) => ({
-    params: { id: client.id.toString() }, // Certifique-se de converter o ID para string
+    params: { id: client._id.toString() }, // Certifique-se de converter o ID para string
   }));
   
   return{
@@ -21,7 +21,7 @@ export const getStaticPaths = async ()=>{
 }
 
 export const getStaticProps = async ({params}) =>{
-const res = await fetch(`http://192.168.1.104:5000/fichas/${params.id}`)
+const res = await fetch(`http://localhost:4000/ficha/${params.id}`)
 const data = await res.json()
 return{
     props:data
