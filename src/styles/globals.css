@@ -260,6 +260,24 @@ h4 {
   border-radius: 0px;
 }
 
+.center {
+  height: 100%;
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.bottom {
+  height: 100%;
+  display: flex;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  align-items: flex-end !important;
+  text-align: flex-end !important;
+}
+
 /* NAV BORDA*/
 
 .borda {

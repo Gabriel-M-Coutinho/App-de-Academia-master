@@ -3,15 +3,15 @@ import { Container, Row, Form } from "react-bootstrap";
 import React, { useContext, useState } from "react";
 import ThemeContext from "../contexts/ThemeContext";
 import { setCookie } from "nookies";
-import { useRouter } from 'next/router';
-
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 function Login() {
   const router = useRouter();
   const { theme } = useContext(ThemeContext);
   const [formstate, setformstate] = useState({});
   const [statuserrormsg, setstatuserrormsg] = useState(false);
-  const [errormsg,seterrormsg]  = useState('');
+  const [errormsg, seterrormsg] = useState("");
 
   const handleChange = (event) => {
     setformstate({
@@ -23,44 +23,35 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault(); // Impede o envio do formulário
 
-    try{
+    try {
       //pesquisar no banco
-      const res = await fetch('http://localhost:4000/login', {
-        method: 'POST',
+      const res = await fetch("http://localhost:4000/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formstate),
       });
       //trasformar em json a response
-      const json = await res.json()
+      const json = await res.json();
 
-      
       //verificação da response
-      if(json.status == 401 ){
-        setstatuserrormsg(true)
-        seterrormsg({msg:json.message,status:json.message})
-      }if(json.status == 200){
-        setCookie(null,'Token',json.token,{  sameSite: 'none',
-        secure: true
-          })
-        router.push('/')
-        
+      if (json.status == 401) {
+        setstatuserrormsg(true);
+        seterrormsg({ msg: json.message, status: json.message });
       }
-     
-
-    }catch(err){
-      setstatuserrormsg(true)
-      seterrormsg('erro no servidor')
+      if (json.status == 200) {
+        setCookie(null, "Token", json.token, {
+          sameSite: "none",
+          secure: true,
+        });
+        router.push("/");
+      }
+    } catch (err) {
+      setstatuserrormsg(true);
+      seterrormsg("erro no servidor");
     }
-      
-
-
-      
-
-  
-  
-  }
+  };
 
   return (
     <Container
@@ -101,7 +92,11 @@ function Login() {
           <button type="submit" className={`botao ${theme}`}>
             entrar
           </button>
-
+          <p className="linkrecuperar">
+            <Link href="/signin" legacyBehavior passHref>
+              <b>Criar Conta</b>
+            </Link>
+          </p>
           <p className="linkrecuperar">Recuperar senha</p>
         </Form>
         <div style={{ display: "flex", justifyContent: "center" }}>

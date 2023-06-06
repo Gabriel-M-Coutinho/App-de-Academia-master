@@ -18,9 +18,9 @@ function TabNav() {
   }, [router.pathname]);
 
   return (
-    <Nav variant="pills" className="flex-column nav">
+    <Nav bsStyle="pills" stacked className="d-flex flex-column nav ">
       <div className={`borda ${theme}`}>
-        <div className={`slide ${theme}`} style={{ marginTop: "40vh" }}>
+        <div className={`slide ${theme} center`}>
           <Nav.Item>
             <Link href="/" className="estilolink" legacyBehavior passHref>
               <Nav.Link className={`${theme}`} active={activeTab === "/"}>
@@ -91,8 +91,7 @@ function TabNav() {
             </Link>
           </Nav.Item>
         </div>
-
-        <Nav.Item className={`slide ${theme}`} style={{ marginTop: "40vh" }}>
+        <Nav.Item className={`slide ${theme}`} style={{ marginTop: "-10vh" }}>
           <div className={`itens ${theme}`}>
             <ThemeButton />
           </div>
