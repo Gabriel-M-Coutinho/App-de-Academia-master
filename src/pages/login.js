@@ -10,7 +10,8 @@ function Login() {
   const router = useRouter();
   const { theme } = useContext(ThemeContext);
   const [formstate, setformstate] = useState({});
-  const [errormsg, seterrormsg] = useState(false);
+  const [statuserrormsg, setstatuserrormsg] = useState(false);
+  const [errormsg,seterrormsg]  = useState('');
 
   const handleChange = (event) => {
     setformstate({
@@ -23,6 +24,7 @@ function Login() {
     event.preventDefault(); // Impede o envio do formulário
 
     try{
+      //pesquisar no banco
       const res = await fetch('http://localhost:4000/login', {
         method: 'POST',
         headers: {
@@ -30,15 +32,26 @@ function Login() {
         },
         body: JSON.stringify(formstate),
       });
+      //trasformar em json a response
       const json = await res.json()
-      console.log(json.status)
-      setCookie(null,'Token',json.token,{  sameSite: 'none',
-      secure: true
-    })
-      router.push('/')
+
+      
+      //verificação da response
+      if(json.status == 401 ){
+        setstatuserrormsg(true)
+        seterrormsg({msg:json.message,status:json.message})
+      }if(json.status == 200){
+        setCookie(null,'Token',json.token,{  sameSite: 'none',
+        secure: true
+          })
+        router.push('/')
+        
+      }
+     
 
     }catch(err){
-      console.log('erro no server')
+      setstatuserrormsg(true)
+      seterrormsg('erro no servidor')
     }
       
 
