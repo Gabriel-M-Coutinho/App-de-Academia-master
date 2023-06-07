@@ -9,7 +9,7 @@ function App() {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <Tab.Container>
+    <Tab.Container id="tabid">
       <Row className={`fundo ${theme}`}>
         <Col xs={1} style={{ maxWidth: "100px", minWidth: "100px" }}>
           <TabNav />

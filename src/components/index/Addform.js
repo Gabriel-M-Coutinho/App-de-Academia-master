@@ -90,7 +90,7 @@ function AddForm() {
     [forms]
   );
 
-  const handleSubmit = () => {};
+
 
   const handleChangeSeries = (indiceForm, indiceCampo, event) => {
     const form = { ...forms[indiceForm] };

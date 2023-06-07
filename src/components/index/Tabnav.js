@@ -18,7 +18,7 @@ function TabNav() {
   }, [router.pathname]);
 
   return (
-    <Nav bsStyle="pills" stacked className="d-flex flex-column nav ">
+    <Nav variant="pills" className="d-flex flex-column nav ">
       <div className={`borda ${theme}`}>
         <div className={`slide ${theme} center`}>
           <Nav.Item>
@@ -30,7 +30,7 @@ function TabNav() {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-file-earmark-plus"
+                    className="bi bi-file-earmark-plus"
                     viewBox="0 0 16 16"
                     style={{ marginRight: "10px" }}
                   >
@@ -55,7 +55,7 @@ function TabNav() {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-person-add"
+                    className="bi bi-person-add"
                     viewBox="0 0 16 16"
                     style={{ marginRight: "10px" }}
                   >
@@ -80,7 +80,7 @@ function TabNav() {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-people"
+                    className="bi bi-people"
                     viewBox="0 0 16 16"
                     style={{ marginRight: "10px" }}
                   >
