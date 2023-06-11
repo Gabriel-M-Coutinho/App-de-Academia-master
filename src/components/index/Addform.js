@@ -34,7 +34,7 @@ function AddForm() {
         return;
       }
 
-      const response = await fetch("http://192.168.1.104:5000/exercicios");
+      const response = await fetch("http://localhost:4000/exercicios");
       const data = await response.json();
       setExercises(data);
       sessionStorage.setItem("exercises", JSON.stringify(data));
@@ -42,6 +42,37 @@ function AddForm() {
 
     fetchData();
   }, []);
+
+  const handlesubmit = async()=>{
+    try {
+      //pesquisar no banco
+      const res = await fetch("http://localhost:4000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formstate),
+      });
+      //trasformar em json a response
+      const json = await res.json();
+
+      //verificação da response
+      if (json.status == 401) {
+        setstatuserrormsg(true);
+        seterrormsg({ msg: json.message, status: json.message });
+      }
+      if (json.status == 200) {
+        setCookie(null, "Token", json.token, {
+          sameSite: "none",
+          secure: true,
+        });
+        router.push("/");
+      }
+    } catch (err) {
+      setstatuserrormsg(true);
+      seterrormsg("erro no servidor");
+    }
+  }
 
   const adicionarForm = useCallback(() => {
     const newKey = Object.keys(forms).length;
