@@ -80,7 +80,7 @@ function index({data}) {
           <Row>
             <Col style={{ textAlign: "center" }}>
               <hr style={{ opacity: "20%" }} />
-              <Link href='/forms'>
+              <Link href='/forms' >
               <button type="button" className={`botao success ${theme}`}>
                 <FontAwesomeIcon icon={faSquarePlus} size="lg" /> Adicionar
                 fichar

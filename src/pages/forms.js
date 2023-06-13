@@ -5,11 +5,12 @@ import React, { useContext } from "react";
 import ThemeContext from "../contexts/ThemeContext";
 
 
-function Forms() {
+function Forms({_id}) {
   const { theme } = useContext(ThemeContext);
 
   return (
     <Tab.Container id="tabid">
+      <h1>{_id}</h1>
       <Row className={`fundo ${theme}`}>
         <Col xs={1} style={{ maxWidth: "100px", minWidth: "100px" }}>
           <TabNav />
