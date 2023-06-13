@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquarePlus } from "@fortawesome/free-regular-svg-icons";
 import React, { useContext } from "react";
 import ThemeContext from "../../../contexts/ThemeContext";
+import Link from "next/link";
 
 export const getStaticPaths = async ()=>{
   const res = await fetch("http://localhost:4000/ficha")
@@ -79,10 +80,11 @@ function index({data}) {
           <Row>
             <Col style={{ textAlign: "center" }}>
               <hr style={{ opacity: "20%" }} />
+              <Link href='/forms'>
               <button type="button" className={`botao success ${theme}`}>
                 <FontAwesomeIcon icon={faSquarePlus} size="lg" /> Adicionar
                 fichar
-              </button>
+              </button></Link>
             </Col>
           </Row>
         </Col>
