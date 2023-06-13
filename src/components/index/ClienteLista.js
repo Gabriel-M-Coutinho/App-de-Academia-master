@@ -5,7 +5,7 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ThemeContext from "../../contexts/ThemeContext";
 
-function ClienteLista({ name }) {
+function ClienteLista({ name,clientid }) {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -13,7 +13,8 @@ function ClienteLista({ name }) {
       <Row className={`formulario client ${theme}`}>
         <Col>
           <p className="info">
-            <strong>Nome:</strong> {name}
+            <strong>Nome:</strong> {name} {clientid}
+          
           </p>
         </Col>
         <Col xs={4}>

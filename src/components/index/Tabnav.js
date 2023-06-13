@@ -23,7 +23,8 @@ function TabNav() {
         <div className={`slide ${theme} center`}>
           <Nav.Item>
             <Link href="/" className="estilolink" legacyBehavior passHref>
-              <Nav.Link className={`${theme}`} active={activeTab === "/"}>
+              <Nav.Link id="redirectfrom/" className={`${theme}`} active={activeTab === "/"}>
+
                 <div className={`itens ${theme}`}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -45,6 +46,7 @@ function TabNav() {
           <Nav.Item>
             <Link href="/plusclient" legacyBehavior passHref>
               <Nav.Link
+               id="redirectplusclientlist"
                 className={`${theme}`}
                 active={activeTab === "/plusclient"}
                 eventKey="user"
@@ -70,6 +72,7 @@ function TabNav() {
           <Nav.Item>
             <Link href="/clientlist" legacyBehavior passHref>
               <Nav.Link
+              id="redirectclientlist"
                 className={`${theme}`}
                 active={activeTab === "/clientlist"}
                 eventKey="user"

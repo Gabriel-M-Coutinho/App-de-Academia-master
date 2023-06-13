@@ -30,7 +30,7 @@ function App({ clientes }) {
         <Col>
           {data &&
             data.map((client, index) => {
-              return <ClienteLista name={client.name} key={index} />;
+              return <ClienteLista name={client.name} clientid={client._id} key={index} />;
             })}
         </Col>
       </Row>

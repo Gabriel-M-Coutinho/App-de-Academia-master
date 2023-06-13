@@ -31,7 +31,7 @@ return{
 }
 
 
-function index({data}) {
+function index(data) {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -80,7 +80,7 @@ function index({data}) {
           <Row>
             <Col style={{ textAlign: "center" }}>
               <hr style={{ opacity: "20%" }} />
-              <Link href='/forms' >
+              <Link href={`/forms/${data._id}`} >
               <button type="button" className={`botao success ${theme}`}>
                 <FontAwesomeIcon icon={faSquarePlus} size="lg" /> Adicionar
                 fichar
